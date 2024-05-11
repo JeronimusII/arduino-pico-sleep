@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.12)
 
+set(PICO_EXTRAS_PATH ../../../pico-extras)
+
 include(pico_sdk_import.cmake)
+include($ENV{PICO_EXTRAS_PATH}../../pico-extras/external/pico_extras_import.cmake)
 
 project(pico_lib C CXX ASM)
 set(CMAKE_C_STANDARD 11)
@@ -96,6 +99,10 @@ target_link_libraries(pico
     pico_util
     tinyusb
     tinyusb_device_unmarked
+	hardware_xosc
+	hardware_rosc
+	hardware_sleep
+	pico_sleep
 )
 
 add_library(picow-noipv6-nobtc-noble STATIC)
